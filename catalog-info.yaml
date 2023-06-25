@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: TFB Website
+  name: TFB-Website
   description: Simple website for TFB
   # labels:
   #   example.com/custom: custom_label_value

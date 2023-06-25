@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: TFB Website
+  description: Simple website for TFB
+  # labels:
+  #   example.com/custom: custom_label_value
+  # annotations:
+  #   example.com/service-discovery: artistweb
+  #   circleci.com/project-slug: github/example-org/artist-website
+  tags:
+    - web
+  links:
+    - url: https://www.theflyingbirds.net
+      title: TFB Website
+      icon: dashboard
+      type: website
+spec:
+  type: website
+  lifecycle: production
+  owner: theflyingbirdsmc/services
+  # system: eu
+  # domain: tfb-network

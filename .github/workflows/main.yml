@@ -27,8 +27,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: registry.theflyingbirds.net
-          username: ${{ secrets.MAVEN_USERNAME }}
-          password: ${{ secrets.MAVEN_PASSWORD }}
+          username: ${{ secrets.ARTIFACTORY_USERNAME }}
+          password: ${{ secrets.ARTIFACTORY_PASSWORD }}
 
       # Build and push Docker image
       - name: Build and push Docker image
@@ -36,5 +36,5 @@ jobs:
         with:
           context: . # specifying the directory where your Dockerfile is
           push: true
-          tags: ${{ secrets.MAVEN_DOCKER_REPO }}/tfbwebsite:latest # change this to your image name
+          tags: ${{ secrets.ARTIFACTORY_DOCKER_REPO }}/tfbwebsite:latest # change this to your image name
         

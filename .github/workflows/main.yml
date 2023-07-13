@@ -32,4 +32,4 @@ jobs:
         with:
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.ARTIFACTORY_DOCKER_REPO}}/robobird:latest
+          tags: ${{ secrets.ARTIFACTORY_DOCKER_REPO}}/website:latest

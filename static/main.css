@@ -1,0 +1,41 @@
+/* https://wallpaper.dog/large/11026245.jpg */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;  /* Apply the modern font */
+}
+
+#background {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    z-index: -1;
+    background: url('https://wallpaper.dog/large/11026245.jpg') no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;  /* Make sure it's above the background */
+    text-align: center;
+}
+
+h1 {
+    font-size: 4em;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;  /* Add text shadow */
+}
+
+p {
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 1px 1px 2px #000000;  /* Add text shadow */
+}

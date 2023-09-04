@@ -1,34 +1,16 @@
-<!-- Uses base.html as Template-->
-
-{% extends "base.html" %}
-
-<!-- Add's page title -->
-
-{% block title %}The Flying Birds{% endblock %}
-
-{% block head %}
-
-<!-- Head Content-->
-    <!-- Add CSS for the Welcome Cover-->
-<link rel="stylesheet" href="{{ url_for('static', filename='css/frontpage.css') }}">
-
-{% endblock %}
-<!-- Body content-->
-
-{% block body %}
-
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <!-- <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      Logo
-    </div> -->
-    <div class="w3-display-middle">
-      <h1 class="w3-jumbo w3-animate-top">The Flying Birds</h1>
-      <p class="w3-large w3-center">IP: mc.theflyingbirds.net - Join today!</p>
-      <hr class="w3-border-grey" style="margin:auto;width:40%">
-      <p class="w3-large w3-center">Right now there are {{playerCount}} players online!</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cursor Following Background</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+</head>
+<body>
+    <div id="background"></div>
+    <div class="centered">
+        <h1>The Flying Birds</h1>
+        <p>Website Under Construction</p>
     </div>
-    <!-- <div class="w3-display-bottomleft w3-padding-large">
-      Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-    </div> -->
-</div>
-{% endblock %}
+</body>
+</html>

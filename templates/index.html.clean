@@ -1,0 +1,16 @@
+<!-- Uses base.html as Template-->
+
+{% extends "base.html" %}
+
+<!-- Add's page title -->
+
+{% block title %}The Flying Birds{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+<!-- Body content-->
+
+{% block body %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tfb-frontend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tfb-frontend-deploy
+  namespace: tfb-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: tfb-frontend
+  template:
+    metadata:
+      labels:
+        app: tfb-frontend
+    spec:
+      containers:
+      - name: tfb-frontend
+        image: nginx
+        ports:
+        - name: web
+          containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tfb-frontend-svc
+  namespace: tfb-frontend
+  labels:
+    app: tfb-frontend
+spec:
+  type: ClusterIP
+  ports:
+  - name:  http
+    port:  80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: tfb-frontend

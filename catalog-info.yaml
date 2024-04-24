@@ -3,11 +3,8 @@ kind: Component
 metadata:
   name: TFB-Website
   description: Simple website for TFB
-  # labels:
-  #   example.com/custom: custom_label_value
-  # annotations:
-  #   example.com/service-discovery: artistweb
-  #   circleci.com/project-slug: github/example-org/artist-website
+  annotations:
+    github.com/project-slug: theflyingbirdsmc/TFB-Website
   tags:
     - web
   links:
@@ -19,5 +16,5 @@ spec:
   type: website
   lifecycle: production
   owner: theflyingbirdsmc/services
-  # system: eu
-  # domain: tfb-network
+  system: eu
+  domain: tfb-backend

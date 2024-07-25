@@ -21,6 +21,13 @@ spec:
       containers:
       - name: tfb-frontend
         image: nginx
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.1"
+            memory: "128Mi"
         ports:
         - name: web
           containerPort: 80
@@ -52,10 +59,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - codingpirates.rosenvold.tech
-    secretName: codingpirates-tls
+    - theflyingbirds.net
+    secretName: theflyingbirds-prod
   rules:
-  - host: codingpirates.rosenvold.tech
+  - host: theflyingbirds.net
     http:
       paths:
       - backend:

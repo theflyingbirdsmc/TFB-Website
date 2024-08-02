@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tfb-frontend-deploy
-  namespace: tfb-frontend
+  name: website-deploy
+  namespace: website
 spec:
   replicas: 3
   selector:
     matchLabels: 
-      app: tfb-frontend
+      app: website
   template:
     metadata:
       labels:
-        app: tfb-frontend
+        app: website
     spec:
       containers:
-      - name: tfb-frontend
+      - name: website
         image: nginx
         resources:
           limits:
@@ -30,10 +30,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tfb-frontend-svc
-  namespace: tfb-frontend
+  name: website-service
+  namespace: website
   labels:
-    app: tfb-frontend
+    app: website
 spec:
   type: ClusterIP
   ports:
@@ -42,13 +42,13 @@ spec:
     targetPort: 80
     protocol: TCP
   selector:
-    app: tfb-frontend
+    app: website
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
- name: tfb-frontend-ingress
- namespace: tfb-frontend
+ name: website-ingress
+ namespace: website
  annotations:
    cert-manager.io/cluster-issuer: lets-encrypt
 spec:
@@ -62,8 +62,22 @@ spec:
       paths:
       - backend:
           service:
-            name: tfb-frontend-svc
+            name: website-service
             port:
               number: 80
         path: /
         pathType: Prefix
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: website
+---
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJoYXJib3IudGhlZmx5aW5nYmlyZHMubmV0Ijp7InVzZXJuYW1lIjoiYWRtaW4iLCJwYXNzd29yZCI6Ii1KSEllUi1YbEQwNTlkdXciLCJhdXRoIjoiWVdSdGFXNDZMVXBJU1dWU0xWaHNSREExT1dSMWR3PT0ifX19
+kind: Secret
+metadata:
+  name: regcred
+  namespace: website
+type: kubernetes.io/dockerconfigjson

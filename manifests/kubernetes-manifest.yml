@@ -4,7 +4,7 @@ metadata:
   name: tfb-frontend-deploy
   namespace: tfb-frontend
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels: 
       app: tfb-frontend

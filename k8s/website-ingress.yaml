@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: website-ingress
+  namespace: website
+  annotations:
+    cert-manager.io/cluster-issuer: lets-encrypt
+spec:
+  tls:
+  - hosts:
+    - theflyingbirds.net
+    secretName: theflyingbirds-prod
+  rules:
+  - host: theflyingbirds.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: website-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
